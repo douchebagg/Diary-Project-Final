@@ -56,11 +56,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return checkResultDiary(result);
     }
 
-    public void deleteDiary(int id){
-        SQLiteDatabase database = this.getWritableDatabase();
-        database.delete(TABLE_NAME, "id = ?", new String[]{id + ""});
-    }
-
     public boolean editDairy(String id, String[] item){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -70,6 +65,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = database.update(TABLE_NAME, contentValues, "id = ?", new String[]{id});
         return checkResultDiary(result);
+    }
+
+    public void deleteDiary(String id){
+        SQLiteDatabase database = this.getWritableDatabase();
+        database.delete(TABLE_NAME, "id = ?", new String[]{id});
     }
 
     private boolean checkResultDiary(long result){

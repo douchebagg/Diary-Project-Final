@@ -17,12 +17,11 @@ import android.widget.Toast;
 import com.example.douchebag.da_project_android.R;
 import com.example.douchebag.da_project_android.sqlite.DatabaseHelper;
 
-import java.util.Calendar;
-
-public class CreateDiaryActivity extends AppCompatActivity{
+public class EditDiaryActivity extends AppCompatActivity {
 
     private DatabaseHelper database;
     private DatePickerDialog.OnDateSetListener dateSetListener;
+    private Bundle bundle;
 
     private EditText editDate, editHead, editBody;
 
@@ -32,7 +31,7 @@ public class CreateDiaryActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstenceState){
         super.onCreate(savedInstenceState);
-        setContentView(R.layout.activity_create_diary_pm);
+        setContentView(R.layout.activity_edit_diary);
         init();
     }
 
@@ -52,11 +51,16 @@ public class CreateDiaryActivity extends AppCompatActivity{
         editHead = (EditText) findViewById(R.id.editHead);
         editBody = (EditText) findViewById(R.id.editBody);
         database = new DatabaseHelper(this);
+        bundle = getIntent().getExtras();
 
-        Calendar cal = Calendar.getInstance();
-        year = cal.get(Calendar.YEAR);
-        mount = cal.get(Calendar.MONTH);
-        day = cal.get(Calendar.DAY_OF_MONTH);
+        editDate.setText(bundle.getString("date"));
+        editHead.setText(bundle.getString("header"));
+        editBody.setText(bundle.getString("content"));
+
+        final String[] mounthSplit = bundle.getString("date").split("\\/");
+        year = Integer.parseInt(mounthSplit[2]);
+        mount = Integer.parseInt(mounthSplit[1]) - 1;
+        day = Integer.parseInt(mounthSplit[0]);
 
         setDateSetListener();
     }
@@ -76,7 +80,7 @@ public class CreateDiaryActivity extends AppCompatActivity{
 
     public void setDate(View view){
         DatePickerDialog dialog = new DatePickerDialog(
-                CreateDiaryActivity.this,
+                EditDiaryActivity.this,
                 android.R.style.Theme_Holo_Dialog_MinWidth,
                 dateSetListener,
                 year, mount, day
@@ -86,7 +90,7 @@ public class CreateDiaryActivity extends AppCompatActivity{
         dialog.show();
     }
 
-    public void addDiary(View view){
+    public void editDiary(View view){
         if(!editBody.getText().toString().equals("") && !editDate.getText().toString().equals("")) {
             String[] data = {
                     editHead.getText().toString(),
@@ -94,7 +98,14 @@ public class CreateDiaryActivity extends AppCompatActivity{
                     editDate.getText().toString()
             };
 
-            boolean insertData = database.addDiary(data);
+            boolean insertData = database.editDairy(
+                    bundle.getString("id"),
+                    new String[]{
+                            editHead.getText().toString(),
+                            editBody.getText().toString(),
+                            editDate.getText().toString()
+                    }
+            );
 
             if(insertData){
                 Intent intent = new Intent(this, MainActivity.class);

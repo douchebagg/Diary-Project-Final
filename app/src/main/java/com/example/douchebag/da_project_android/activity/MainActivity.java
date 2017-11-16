@@ -113,11 +113,16 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void editDiary(int id, String header, String content, String data){
-
+    public void editDiary(String id, String[] item){
+        Intent intent = new Intent(this, EditDiaryActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("header", item[0]);
+        intent.putExtra("content", item[1]);
+        intent.putExtra("date", item[2]);
+        startActivity(intent);
     }
 
-    public void deleteDiary(int id){
+    public void deleteDiary(String id){
         databaseHelper.deleteDiary(id);
         showList();
     }
@@ -198,14 +203,16 @@ public class MainActivity extends AppCompatActivity{
                             switch (menuItem.getItemId()){
                                 case R.id.menuEdit:
                                     editDiary(
-                                            listData.get(position).getId(),
-                                            listData.get(position).getHeader(),
-                                            listData.get(position).getContent(),
-                                            listData.get(position).getData()
+                                            listData.get(position).getId() + "",
+                                            new String[]{
+                                                    listData.get(position).getHeader(),
+                                                    listData.get(position).getContent(),
+                                                    listData.get(position).getData()
+                                            }
                                     );
                                     break;
                                 case R.id.menuDelete:
-                                    deleteDiary(listData.get(position).getId());
+                                    deleteDiary(listData.get(position).getId() + "");
                                     break;
                             }
                             return true;
