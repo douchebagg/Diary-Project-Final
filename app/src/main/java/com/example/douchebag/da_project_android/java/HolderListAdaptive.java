@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class HolderListAdaptive {
-    RelativeLayout layout;
-    TextView textMonth, textDay, textHeader, textContent;
-    ImageView menu;
+    public RelativeLayout layout;
+    public TextView textMonth, textDay, textHeader, textContent;
+    public ImageView menu;
 }

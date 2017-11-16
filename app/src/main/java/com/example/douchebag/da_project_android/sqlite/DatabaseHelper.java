@@ -56,10 +56,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return checkResultDiary(result);
     }
 
-    public boolean deleteDiary(int id){
+    public void deleteDiary(int id){
         SQLiteDatabase database = this.getWritableDatabase();
-        long result = database.delete(TABLE_NAME, "id = ?", new String[]{id + ""});
-        return checkResultDiary(result);
+        database.delete(TABLE_NAME, "id = ?", new String[]{id + ""});
     }
 
     public boolean editDairy(String id, String[] item){
