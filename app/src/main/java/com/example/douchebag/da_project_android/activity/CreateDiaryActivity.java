@@ -1,0 +1,109 @@
+package com.example.douchebag.da_project_android.activity;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.douchebag.da_project_android.R;
+import com.example.douchebag.da_project_android.sqlite.DatabaseHelper;
+
+import java.util.Calendar;
+
+public class CreateDiaryActivity extends AppCompatActivity{
+
+    private DatabaseHelper database;
+    private DatePickerDialog.OnDateSetListener dateSetListener;
+
+    private EditText editDate, editHead, editBody;
+
+    private int year, mount, day;
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onCreate(Bundle savedInstenceState){
+        super.onCreate(savedInstenceState);
+        setContentView(R.layout.activity_create_diary_pm);
+        init();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void init(){
+        editDate = (EditText) findViewById(R.id.editDate);
+        editHead = (EditText) findViewById(R.id.editHead);
+        editBody = (EditText) findViewById(R.id.editBody);
+        database = new DatabaseHelper(this);
+
+        Calendar cal = Calendar.getInstance();
+        year = cal.get(Calendar.YEAR);
+        mount = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH);
+
+        setDateSetListener();
+    }
+
+    private void setDateSetListener(){
+        dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int y, int m, int d){
+                String dayStr;
+                year = y;
+                mount = m;
+                if((d + "").length() == 1)
+                    dayStr = "0" + d;
+                else
+                    dayStr = "" + d;
+
+                editDate.setText(dayStr + "/" + (mount + 1) + "/" + year);
+            }
+        };
+    }
+
+    public void setDate(View view){
+        DatePickerDialog dialog = new DatePickerDialog(
+                CreateDiaryActivity.this,
+                android.R.style.Theme_Holo_Dialog_MinWidth,
+                dateSetListener,
+                year, mount, day
+        );
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+    }
+
+    public void addDiary(View view){
+        if(!editBody.getText().toString().equals("") && !editDate.getText().toString().equals("")) {
+            String[] data = {
+                    editHead.getText().toString(),
+                    editBody.getText().toString(),
+                    editDate.getText().toString()
+            };
+
+            boolean insertData = database.addDiary(data);
+
+            if(insertData){
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("checked", "Create successfully");
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Oop, Someting went wrong.", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            if(editBody.getText().toString().equals("") && editDate.getText().toString().equals("")){
+                Toast.makeText(this, "Content and date empty", Toast.LENGTH_SHORT).show();
+            }else if (editBody.getText().toString().equals("")){
+                Toast.makeText(this, "Content is empty", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Date is empty", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+}

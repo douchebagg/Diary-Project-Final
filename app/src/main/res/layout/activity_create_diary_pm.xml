@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f66c1c"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:lines="1"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="70dp"
+        android:paddingRight="14dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/cd_datelong_pm"
+        android:focusable="false"
+        android:textSize="16sp"
+        android:hint="dd/mm/yyyy"
+        android:textColorHint="#f66c1c"
+        android:textColor="#f66c1c"
+        android:onClick="setDate"/>
+
+    <EditText
+        android:id="@+id/editHead"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:lines="1"
+        android:paddingLeft="70dp"
+        android:paddingRight="14dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:background="@drawable/cd_subject_pm"
+        android:textSize="16sp"
+        android:textColor="#f66c1c"
+        android:textColorHint="#f66c1c"
+        android:hint="subject"/>
+
+    <EditText
+        android:id="@+id/editBody"
+        android:layout_width="320dp"
+        android:layout_height="310dp"
+        android:lines="10"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="157dp"
+        android:background="@drawable/cd_textarea"
+        android:gravity="top|left"
+        android:textSize="16sp"
+        android:textColor="#f66c1c"/>
+
+    <Button
+        android:id="@+id/editSave"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/cd_save_pm"
+        android:onClick="addDiary" />
+
+</RelativeLayout>

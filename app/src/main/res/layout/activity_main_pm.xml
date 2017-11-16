@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true">
+
+    <FrameLayout
+        android:id="@+id/frameHeadber"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/m_headbar">
+
+        <EditText
+            android:id="@+id/editSearch"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="45dp"
+            android:paddingTop="6dp"
+            android:background="@drawable/m_search"
+            android:lines="1"
+            android:fontFamily="@font/arian"
+            android:textSize="19sp"
+            android:gravity="center_horizontal"
+            android:hint="Search" />
+
+        <Button
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="308dp"
+            android:background="@drawable/m_setting"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/frameHeadber">
+
+        <ListView
+            android:id="@+id/listDiary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="377dp"
+            android:background="@drawable/m_add"
+            android:onClick="createDiary"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

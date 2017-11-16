@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/m_list_orenge">
+
+        <LinearLayout
+            android:layout_width="74dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="25dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:fontFamily="@font/arian"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="74dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="25dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="29dp"
+                android:fontFamily="@font/arian"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="122dp"
+            android:textSize="19sp"
+            android:fontFamily="@font/arian"/>
+
+        <TextView
+            android:id="@+id/textContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_marginLeft="123dp"
+            android:fontFamily="@font/arian"/>
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="300dp"
+            android:src="@drawable/fc_send"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

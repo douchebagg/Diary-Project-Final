@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DiaryApplication</string>
+
+    <string name="cf_edittext">Please input your code.</string>
+    <string name="cf_forgot">forgot your code ?</string>
+
+    <string name="cc_head">create your code</string>
+
+    <string name="mail_header">Code for unlock DiaryApplication</string>
+
+    <string name="fc_text">We will send you a code for unlock it to your email.</string>
+</resources>
