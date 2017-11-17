@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     <RelativeLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
@@ -60,12 +60,19 @@
             android:layout_marginLeft="123dp"
             android:fontFamily="@font/arian"/>
 
-        <ImageView
-            android:id="@+id/menu"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="300dp"
-            android:src="@drawable/fc_send"/>
+        <RelativeLayout
+            android:id="@+id/layoutMenu"
+            android:layout_width="20dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="363dp">
+
+            <ImageView
+                android:id="@+id/menu"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/fc_dot" />
+        </RelativeLayout>
 
     </RelativeLayout>
 

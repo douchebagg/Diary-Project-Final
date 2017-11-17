@@ -32,14 +32,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getListContent(){
         SQLiteDatabase database = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME + " ORDER BY id DESC";
         Cursor data = database.rawQuery(query, null);
         return data;
     }
 
     public Cursor getListContentBySearch(String search){
         SQLiteDatabase database = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE header LIKE ? OR content LIKE ?";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE header LIKE ? OR content LIKE ? ORDER BY id DESC";
         Cursor data = database.rawQuery(query, new String[]{search, search});
 
         return data;

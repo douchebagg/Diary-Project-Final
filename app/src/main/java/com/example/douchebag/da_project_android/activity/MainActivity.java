@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -44,7 +46,13 @@ public class MainActivity extends AppCompatActivity{
     protected void onStop(){
         super.onStop();
         theList.clear();
-        listDiary.clearTextFilter();
+        listDiary.requestLayout();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        showList();
     }
 
     @Override
@@ -72,8 +80,25 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        listDiary.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this, ViewDiaryActivity.class);
+                intent.putExtra("id", theList.get(i).getId() + "");
+                intent.putExtra("header", theList.get(i).getId());
+                intent.putExtra("content", theList.get(i).getId());
+                intent.putExtra("date", theList.get(i).getId());
+                startActivity(intent);
+            }
+        });
+
         databaseHelper = new DatabaseHelper(this);
         showList();
+    }
+
+    public void setting(View view){
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
     }
 
     public void showList(){
@@ -163,13 +188,16 @@ public class MainActivity extends AppCompatActivity{
             holder.textHeader = convertView.findViewById(R.id.textHead);
             holder.textContent = convertView.findViewById(R.id.textContent);
             holder.menu = convertView.findViewById(R.id.menu);
+            holder.layoutMenu = convertView.findViewById(R.id.layoutMenu);
 
             if (position % 2 != 0) {
                 holder.layout.setBackgroundResource(R.drawable.m_list_orenge);
+                holder.menu.setBackgroundResource(R.drawable.fc_dot);
                 holder.textHeader.setTextColor(Color.parseColor("#ffffff"));
                 holder.textContent.setTextColor(Color.parseColor("#ffffff"));
             }else{
                 holder.layout.setBackgroundResource(R.drawable.m_list_white);
+                holder.menu.setBackgroundResource(R.drawable.fc_dot);
                 holder.textHeader.setTextColor(Color.parseColor("#000000"));
                 holder.textContent.setTextColor(Color.parseColor("#000000"));
             }
@@ -189,7 +217,7 @@ public class MainActivity extends AppCompatActivity{
                 holder.textContent.setText(listData.get(position).getContent());
             }
 
-            holder.menu.setOnClickListener(new View.OnClickListener() {
+            holder.layoutMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     PopupMenu popup = new PopupMenu(getContext(), view);

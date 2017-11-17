@@ -23,6 +23,8 @@
         <activity android:name=".activity.SendSuccessActivity"></activity>
         <activity android:name=".activity.CreateDiaryActivity"></activity>
         <activity android:name=".activity.EditDiaryActivity"></activity>
+        <activity android:name=".activity.ViewDiaryActivity"></activity>
+        <activity android:name=".activity.SettingActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
