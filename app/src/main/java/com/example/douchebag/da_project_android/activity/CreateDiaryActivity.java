@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.douchebag.da_project_android.R;
-import com.example.douchebag.da_project_android.sqlite.DatabaseHelper;
+import com.example.douchebag.da_project_android.service.DatabaseHelper;
 
 import java.util.Calendar;
 
@@ -105,9 +105,9 @@ public class CreateDiaryActivity extends AppCompatActivity{
             }
         }else{
             if(editBody.getText().toString().equals("") && editDate.getText().toString().equals("")){
-                Toast.makeText(this, "Content and date empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please specify the time and content.", Toast.LENGTH_SHORT).show();
             }else if (editBody.getText().toString().equals("")){
-                Toast.makeText(this, "Content is empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "The content is empty.", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(this, "Date is empty", Toast.LENGTH_SHORT).show();
             }

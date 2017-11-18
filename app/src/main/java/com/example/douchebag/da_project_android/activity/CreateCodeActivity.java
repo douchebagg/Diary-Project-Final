@@ -20,8 +20,6 @@ public class CreateCodeActivity extends AppCompatActivity {
 
     private EditText editCode, editCodeConfirm, editEmail;
 
-    private String email;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -34,10 +32,6 @@ public class CreateCodeActivity extends AppCompatActivity {
         editCode = (EditText) findViewById(R.id.editCode);
         editCodeConfirm = (EditText) findViewById(R.id.editCodeConfirm);
         editEmail = (EditText) findViewById(R.id.editEmail);
-
-        email = sharedpreferences.getString("EMAIL_FOR_FORGET", "");
-
-        editEmail.setText(email);
     }
 
     private static boolean emailValidFormat(String email) {
@@ -76,11 +70,5 @@ public class CreateCodeActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Oops. Passwords don't match.", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void deleteCode(View view){
-        sharedpreferences.edit().clear().commit();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }

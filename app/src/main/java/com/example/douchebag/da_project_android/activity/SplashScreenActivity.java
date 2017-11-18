@@ -16,7 +16,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private Handler handler;
     private Runnable runnable;
 
-    private String validCode;
+    private boolean code;
 
     @Override
     protected void onCreate(Bundle savedIntenceState){
@@ -39,14 +39,14 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private void init(){
         sharedpreferences = getSharedPreferences("CODE_DIRECTORY", Context.MODE_PRIVATE);
-        validCode = sharedpreferences.getString("CODE", "");
+        code = sharedpreferences.getBoolean("CODE_ENABLE", false);
 
         handler = new Handler();
-        if(validCode.equals("")) {
+        if(code) {
             runnable = new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this, CodeActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -55,7 +55,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             runnable = new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(SplashScreenActivity.this, CodeActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }

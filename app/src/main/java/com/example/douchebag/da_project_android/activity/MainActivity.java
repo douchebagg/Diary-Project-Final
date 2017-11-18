@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -22,7 +21,7 @@ import android.widget.PopupMenu;
 
 import com.example.douchebag.da_project_android.R;
 import com.example.douchebag.da_project_android.java.*;
-import com.example.douchebag.da_project_android.sqlite.DatabaseHelper;
+import com.example.douchebag.da_project_android.service.DatabaseHelper;
 
 import java.util.ArrayList;
 
