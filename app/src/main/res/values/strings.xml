@@ -26,5 +26,5 @@
 
     <string name="fc_text">We will send you a code for unlock it to your email.</string>
 
-    <string name="popup">You do not have a password, Or do you want to create.</string>
+    <string name="popup">You don\'t have a code, Or do you want to create.</string>
 </resources>

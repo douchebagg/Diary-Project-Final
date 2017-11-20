@@ -1,13 +1,16 @@
 package com.example.douchebag.da_project_android.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.douchebag.da_project_android.R;
 import com.example.douchebag.da_project_android.service.DatabaseHelper;
@@ -53,16 +56,30 @@ public class ViewDiaryActivity extends AppCompatActivity {
 
     public void editDiary(View view){
         Intent intent = new Intent(this, EditDiaryActivity.class);
-        intent.putExtra("id", id);
+        intent.putExtra("id", id + "");
         intent.putExtra("header", bundle.getString("header"));
         intent.putExtra("content", bundle.getString("content"));
         intent.putExtra("date", bundle.getString("date"));
         startActivity(intent);
     }
 
-    public void deleteDiary(String id){
-        databaseHelper.deleteDiary(id);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    public void deleteDiary(View view){
+        boolean deleteData = databaseHelper.deleteDiary(id + "");
+        if(deleteData) {
+            new AlertDialog.Builder(this)
+                    .setTitle("DELETE DIARY")
+                    .setMessage("Are you sure for delete diary.")
+                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(ViewDiaryActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        } else {
+            Toast.makeText(this, "Oop, Someting went wrong.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

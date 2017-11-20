@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
@@ -114,8 +115,17 @@ public class SettingActivity extends AppCompatActivity {
                     editor.commit();
                 }else {
                     switchCode.setChecked(!b);
-                    Intent intent = new Intent(SettingActivity.this, PopupActivity.class);
-                    startActivity(intent);
+                    new android.support.v7.app.AlertDialog.Builder(SettingActivity.this)
+                            .setMessage(getResources().getString(R.string.popup))
+                            .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(SettingActivity.this, CreateCodeActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
                 }
             }
         });

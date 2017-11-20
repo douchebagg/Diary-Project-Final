@@ -18,7 +18,8 @@
             android:layout_marginLeft="20dp"
             android:textColor="#fff"
             android:fontFamily="@font/arian"
-            android:textSize="27sp"/>
+            android:textSize="27sp"
+            android:onClick="editDiary"/>
 
         <TextView
             android:id="@+id/textDate"

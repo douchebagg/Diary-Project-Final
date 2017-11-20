@@ -29,8 +29,6 @@
         <activity android:name=".activity.EditDiaryActivity"></activity>
         <activity android:name=".activity.ViewDiaryActivity"></activity>
         <activity android:name=".activity.SettingActivity"></activity>
-        <activity android:name=".activity.PopupActivity"
-            android:theme="@style/AppTheme.PopupTheme"></activity>
 
         <receiver android:name=".service.Receiver" android:exported="false" />
     </application>

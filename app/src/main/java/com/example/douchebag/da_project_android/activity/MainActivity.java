@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity{
             holder.textHeader = convertView.findViewById(R.id.textHead);
             holder.textContent = convertView.findViewById(R.id.textContent);
             holder.menu = convertView.findViewById(R.id.menu);
+            holder.menuLayout = convertView.findViewById(R.id.menuLayout);
 
             if (position % 2 != 0) {
                 holder.layout.setBackgroundResource(R.drawable.m_list_orenge);
@@ -216,7 +217,6 @@ public class MainActivity extends AppCompatActivity{
             holder.layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("checkclick", "click");
                     Intent intent = new Intent(MainActivity.this, ViewDiaryActivity.class);
                     intent.putExtra("id", listData.get(position).getId());
                     intent.putExtra("header", listData.get(position).getHeader());
@@ -226,10 +226,17 @@ public class MainActivity extends AppCompatActivity{
                 }
             });
 
+            holder.menuLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.menu.callOnClick();
+                }
+            });
+
             holder.menu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    PopupMenu popup = new PopupMenu(getContext(), view);
+                    PopupMenu popup = new PopupMenu(getContext(), holder.menu);
                     popup.inflate(R.menu.popup_menu);
                     popup.show();
 

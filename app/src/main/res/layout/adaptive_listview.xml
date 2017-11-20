@@ -65,14 +65,22 @@
             android:layout_marginLeft="123dp"
             android:fontFamily="@font/arian"/>
 
-        <Button
-            android:id="@+id/menu"
-            android:layout_width="15dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="5dp"
-            android:layout_gravity="right"
-            android:background="@drawable/fc_dot" />
+        <FrameLayout
+            android:id="@+id/menuLayout"
+            android:layout_width="30dp"
+            android:layout_height="36dp"
+            android:layout_gravity="right">
+
+            <Button
+                android:id="@+id/menu"
+                android:layout_width="15dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="right"
+                android:background="@drawable/fc_dot" />
+
+        </FrameLayout>
 
     </FrameLayout>
 
