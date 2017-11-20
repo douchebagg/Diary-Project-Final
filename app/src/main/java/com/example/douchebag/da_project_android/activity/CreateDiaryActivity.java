@@ -1,5 +1,6 @@
 package com.example.douchebag.da_project_android.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -32,7 +33,7 @@ public class CreateDiaryActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstenceState){
         super.onCreate(savedInstenceState);
-        setContentView(R.layout.activity_create_diary_pm);
+        setContentView(R.layout.activity_create_diary);
         init();
     }
 
@@ -77,7 +78,7 @@ public class CreateDiaryActivity extends AppCompatActivity{
     public void setDate(View view){
         DatePickerDialog dialog = new DatePickerDialog(
                 CreateDiaryActivity.this,
-                android.R.style.Theme_Holo_Dialog_MinWidth,
+                AlertDialog.THEME_HOLO_DARK,
                 dateSetListener,
                 year, mount, day
         );
@@ -87,7 +88,8 @@ public class CreateDiaryActivity extends AppCompatActivity{
     }
 
     public void addDiary(View view){
-        if(!editBody.getText().toString().equals("") && !editDate.getText().toString().equals("")) {
+        if(!editHead.getText().toString().equals("") && !editBody.getText().toString().equals("")
+                && !editDate.getText().toString().equals("")) {
             String[] data = {
                     editHead.getText().toString(),
                     editBody.getText().toString(),
@@ -96,20 +98,22 @@ public class CreateDiaryActivity extends AppCompatActivity{
 
             boolean insertData = database.addDiary(data);
 
-            if(insertData){
+            if (insertData) {
                 Intent intent = new Intent(this, MainActivity.class);
-                intent.putExtra("checked", "Create successfully");
                 startActivity(intent);
-            }else{
+            } else {
                 Toast.makeText(this, "Oop, Someting went wrong.", Toast.LENGTH_SHORT).show();
             }
         }else{
-            if(editBody.getText().toString().equals("") && editDate.getText().toString().equals("")){
-                Toast.makeText(this, "Please specify the time and content.", Toast.LENGTH_SHORT).show();
-            }else if (editBody.getText().toString().equals("")){
-                Toast.makeText(this, "The content is empty.", Toast.LENGTH_SHORT).show();
+            if(editHead.getText().toString().equals("") && editBody.getText().toString().equals("")
+                    && editDate.getText().toString().equals("")) {
+                Toast.makeText(this, "Can't save, Please input some data.", Toast.LENGTH_SHORT).show();
+            }else if(editDate.getText().toString().equals("")){
+                Toast.makeText(this, "Date is empty.", Toast.LENGTH_SHORT).show();
+            }else if (editHead.getText().toString().equals("")){
+                Toast.makeText(this, "Header is empty.", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(this, "Date is empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Content is empty..", Toast.LENGTH_SHORT).show();
             }
         }
     }

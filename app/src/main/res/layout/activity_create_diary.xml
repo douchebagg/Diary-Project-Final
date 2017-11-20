@@ -7,7 +7,7 @@
 
     <EditText
         android:id="@+id/editDate"
-        android:layout_width="320dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
         android:lines="1"
         android:layout_marginTop="40dp"
@@ -24,9 +24,10 @@
 
     <EditText
         android:id="@+id/editHead"
-        android:layout_width="320dp"
+        android:layout_width="310dp"
         android:layout_height="50dp"
         android:lines="1"
+        android:maxLength="20"
         android:paddingLeft="70dp"
         android:paddingRight="14dp"
         android:layout_centerHorizontal="true"
@@ -39,9 +40,9 @@
 
     <EditText
         android:id="@+id/editBody"
-        android:layout_width="320dp"
+        android:layout_width="310dp"
         android:layout_height="310dp"
-        android:lines="10"
+        android:lines="20"
         android:padding="10dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="157dp"
@@ -52,8 +53,8 @@
 
     <Button
         android:id="@+id/editSave"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="480dp"
         android:background="@drawable/cd_save_pm"

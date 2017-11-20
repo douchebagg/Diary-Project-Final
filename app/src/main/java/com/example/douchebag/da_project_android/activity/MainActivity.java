@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstenceState){
         super.onCreate(savedInstenceState);
-        setContentView(R.layout.activity_main_pm);
+        setContentView(R.layout.activity_main);
         init();
     }
 
@@ -76,18 +78,6 @@ public class MainActivity extends AppCompatActivity{
             @Override public void afterTextChanged(Editable editable) {
                 String keyword = "%" + editSearch.getText().toString() + "%";
                 search(keyword);
-            }
-        });
-
-        listDiary.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(MainActivity.this, ViewDiaryActivity.class);
-                intent.putExtra("id", theList.get(i).getId() + "");
-                intent.putExtra("header", theList.get(i).getId());
-                intent.putExtra("content", theList.get(i).getId());
-                intent.putExtra("date", theList.get(i).getId());
-                startActivity(intent);
             }
         });
 
@@ -187,7 +177,6 @@ public class MainActivity extends AppCompatActivity{
             holder.textHeader = convertView.findViewById(R.id.textHead);
             holder.textContent = convertView.findViewById(R.id.textContent);
             holder.menu = convertView.findViewById(R.id.menu);
-            holder.layoutMenu = convertView.findViewById(R.id.layoutMenu);
 
             if (position % 2 != 0) {
                 holder.layout.setBackgroundResource(R.drawable.m_list_orenge);
@@ -204,19 +193,40 @@ public class MainActivity extends AppCompatActivity{
             holder.textMonth.setText(month);
             holder.textDay.setText(array[0]);
 
+            ArrayList<String> content = new ArrayList<>();
+            for(String test : listData.get(position).getContent().split("\n")) {
+                content.add(test);
+            }
+
             if (listData.get(position).getHeader().length() > 15) {
                 holder.textHeader.setText(listData.get(position).getHeader().substring(0, 16) + " ...");
             } else {
                 holder.textHeader.setText(listData.get(position).getHeader());
             }
 
-            if (listData.get(position).getHeader().length() > 20) {
-                holder.textContent.setText(listData.get(position).getContent().substring(0, 31) + " ....");
+            if (content.get(0).length() > 30) {
+                holder.textContent.setText(content.get(0).substring(0, 31) + " ....");
             } else {
-                holder.textContent.setText(listData.get(position).getContent());
+                if(content.size() == 1)
+                    holder.textContent.setText(content.get(0));
+                else
+                    holder.textContent.setText(content.get(0) + " ....");
             }
 
-            holder.layoutMenu.setOnClickListener(new View.OnClickListener() {
+            holder.layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("checkclick", "click");
+                    Intent intent = new Intent(MainActivity.this, ViewDiaryActivity.class);
+                    intent.putExtra("id", listData.get(position).getId());
+                    intent.putExtra("header", listData.get(position).getHeader());
+                    intent.putExtra("content", listData.get(position).getContent());
+                    intent.putExtra("date", listData.get(position).getData());
+                    startActivity(intent);
+                }
+            });
+
+            holder.menu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     PopupMenu popup = new PopupMenu(getContext(), view);

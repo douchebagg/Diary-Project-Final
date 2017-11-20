@@ -20,7 +20,7 @@
             android:layout_height="166dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="167dp"
+            android:layout_marginBottom="110dp"
             android:background="@drawable/cf_bgbox"
             android:focusableInTouchMode="true">
 
@@ -58,7 +58,7 @@
             android:layout_height="43dp"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/relativeLayout_top"
-            android:layout_marginBottom="119dp"
+            android:layout_marginBottom="63dp"
             android:background="@drawable/cf_bgbox"
             android:gravity="center">
 
@@ -74,3 +74,4 @@
         </RelativeLayout>
     </RelativeLayout>
 </FrameLayout>
+

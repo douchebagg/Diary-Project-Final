@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:\Application Development\AndroidStudioProjects\DiaryApplication\DAPROJECTANDROID.iml" filepath="E:\Application Development\AndroidStudioProjects\DiaryApplication\DAPROJECTANDROID.iml" />
       <module fileurl="file://$PROJECT_DIR$/DiaryApplication.iml" filepath="$PROJECT_DIR$/DiaryApplication.iml" />
-      <module fileurl="file://E:\Application Development\AndroidStudioProjects\DiaryApplication\DiaryProject.iml" filepath="E:\Application Development\AndroidStudioProjects\DiaryApplication\DiaryProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

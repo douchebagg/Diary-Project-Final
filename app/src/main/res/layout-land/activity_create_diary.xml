@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f66c1c"
+    android:focusableInTouchMode="true"
+    android:gravity="center_horizontal|center_vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="500dp"
+        android:layout_height="47dp"
+        android:lines="1"
+        android:maxLength="20"
+        android:paddingLeft="70dp"
+        android:paddingRight="14dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/cd_datelong_ld"
+        android:focusable="false"
+        android:textSize="16sp"
+        android:hint="dd/mm/yyyy"
+        android:textColorHint="#f66c1c"
+        android:textColor="#f66c1c"
+        android:onClick="setDate"/>
+
+    <EditText
+        android:id="@+id/editHead"
+        android:layout_width="500dp"
+        android:layout_height="47dp"
+        android:lines="1"
+        android:paddingLeft="70dp"
+        android:paddingRight="14dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/cd_subject_ln"
+        android:textSize="16sp"
+        android:textColor="#f66c1c"
+        android:textColorHint="#f66c1c"
+        android:hint="subject"/>
+
+    <EditText
+        android:id="@+id/editBody"
+        android:layout_width="500dp"
+        android:layout_height="160dp"
+        android:lines="10"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/cd_textarea"
+        android:gravity="top|left"
+        android:textSize="16sp"
+        android:textColor="#f66c1c"/>
+
+    <Button
+        android:id="@+id/editSave"
+        android:layout_width="500dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="269dp"
+        android:background="@drawable/cd_save_ln"
+        android:onClick="addDiary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -12,7 +12,7 @@
 
         <EditText
             android:id="@+id/editSearch"
-            android:layout_width="250dp"
+            android:layout_width="435dp"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="45dp"
@@ -28,7 +28,8 @@
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="308dp"
+            android:layout_marginRight="41dp"
+            android:layout_gravity="right"
             android:background="@drawable/m_setting"
             android:onClick="setting"/>
     </FrameLayout>
@@ -46,8 +47,9 @@
         <Button
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="377dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="bottom|right"
             android:background="@drawable/m_add"
             android:onClick="createDiary"/>
 

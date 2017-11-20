@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.douchebag.da_project_android.R;
 
@@ -40,7 +41,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private void init(){
         sharedpreferences = getSharedPreferences("CODE_DIRECTORY", Context.MODE_PRIVATE);
         code = sharedpreferences.getBoolean("CODE_ENABLE", false);
-
+Log.d("start_to", code + "");
         handler = new Handler();
         if(code) {
             runnable = new Runnable() {

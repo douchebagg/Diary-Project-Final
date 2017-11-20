@@ -1,11 +1,11 @@
 package com.example.douchebag.da_project_android.java;
 
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class HolderListAdaptive {
-    public RelativeLayout layout, layoutMenu;
+    public FrameLayout layout;
     public TextView textMonth, textDay, textHeader, textContent;
-    public ImageView menu;
+    public Button menu;
 }

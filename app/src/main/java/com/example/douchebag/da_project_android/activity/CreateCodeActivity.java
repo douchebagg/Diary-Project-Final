@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,8 +24,18 @@ public class CreateCodeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_code_pm);
+        setContentView(R.layout.activity_create_code);
         init();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private void init(){
@@ -47,6 +58,7 @@ public class CreateCodeActivity extends AppCompatActivity {
             if(emailValidFormat(editEmail.getText().toString())) {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString("CODE", editCode.getText().toString());
+                editor.putBoolean("CODE_ENABLE", true);
                 editor.putString("EMAIL_FOR_FORGET", editEmail.getText().toString());
                 editor.commit();
 

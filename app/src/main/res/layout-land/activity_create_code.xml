@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/backgroud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cc_backgroud_pm" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+        <ImageView
+            android:id="@+id/textHead"
+            android:layout_width="220dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/cc_head" />
+
+        <RelativeLayout
+            android:layout_width="340dp"
+            android:layout_height="225dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/cf_bgbox">
+
+            <EditText
+                android:id="@+id/editCode"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp"
+                android:lines="1"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:inputType="textPassword"
+                android:background="@drawable/cc_edittext"
+                android:fontFamily="@font/arian"
+                android:textColor="#656565"
+                android:hint="code"/>
+
+            <EditText
+                android:id="@+id/editCodeConfirm"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:lines="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="65dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:inputType="textPassword"
+                android:background="@drawable/cc_edittext"
+                android:fontFamily="@font/arian"
+                android:textColor="#656565"
+                android:hint="code again"/>
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:lines="1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="115dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:background="@drawable/cc_edittext"
+                android:fontFamily="@font/arian"
+                android:textColor="#656565"
+                android:hint="e-mail"/>
+
+            <Button
+                android:id="@+id/btCreate"
+                android:layout_width="310dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="165dp"
+                android:background="@drawable/cc_confrim_pm"
+                android:onClick="createCode"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</FrameLayout>

@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.text.Html;
+import android.util.Log;
 import android.view.View;
 
 import com.example.douchebag.da_project_android.R;
@@ -36,7 +38,7 @@ public class ForgetCodeActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_pm);
+        setContentView(R.layout.activity_forget);
         init();
     }
 
@@ -49,14 +51,10 @@ public class ForgetCodeActivity extends AppCompatActivity{
     public void sendEmail(View v) {
         to = email;
         subject = getResources().getString(R.string.mail_header);
-        content = "<div style=\"font-size:15px; margin-top:26px; margin-bottom:26px; padding-top:14px; " +
-                "padding-bottom:14px; border-style:solid; border-color:red; width:360px;\">" +
-                "<p><b>Hello,</b></p>" +
-                "<p>We received a request regarding your diary.</p>" +
-                "<p>your code is <font color=\"red\">\"" + code + "\".</font></p>" +
-                "<p>If you didn’t ask to your code, you can ignore this email.</p>" +
-                "<p>Thanks, DiaryApplication team.</p>" +
-                "</div>";
+        content = getResources().getString(R.string.mail);
+        content = content.replace("THIS", code);
+
+        Log.d("htmltest", content);
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");

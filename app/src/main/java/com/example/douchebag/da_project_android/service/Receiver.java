@@ -15,12 +15,12 @@ import com.example.douchebag.da_project_android.activity.SplashScreenActivity;
 public class Receiver extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {Log.d("NOTIFICATIONTEST", "2");
         if(intent.getStringExtra("ACTION") != null && intent.getStringExtra("ACTION").equals("NOTIFICATION")){
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setSmallIcon(R.drawable.vd_edit)
                     .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.m_add))
                     .setContentTitle("Hey, you forget writing a diary?")
                     .setContentText("Click here if you want to write a diary.")
@@ -34,6 +34,7 @@ public class Receiver extends BroadcastReceiver {
             builder.setLights(0xFFb71c1c, 1000, 2000);
             builder.setContentIntent(pendingIntent);
             notificationManager.notify(12345, builder.build());
+            Log.d("NOTIFICATIONTEST", "3");
         }
     }
 }

@@ -5,8 +5,8 @@
     android:background="@drawable/fc_bg">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:src="@drawable/cc_icon"/>
@@ -29,8 +29,8 @@
         android:background="@drawable/fc_keytoemail"/>
 
     <Button
-        android:layout_width="340dp"
-        android:layout_height="60dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="445dp"
         android:background="@drawable/fc_send"

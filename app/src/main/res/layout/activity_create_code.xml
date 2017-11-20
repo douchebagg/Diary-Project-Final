@@ -17,7 +17,7 @@
 
         <ImageView
             android:id="@+id/textHead"
-            android:layout_width="220dp"
+            android:layout_width="210dp"
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
@@ -25,15 +25,15 @@
 
         <ImageView
             android:id="@+id/Icon"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="105dp"
             android:src="@drawable/cc_icon" />
 
         <EditText
             android:id="@+id/editCode"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="45dp"
             android:lines="1"
             android:layout_centerHorizontal="true"
@@ -48,7 +48,7 @@
 
         <EditText
             android:id="@+id/editCodeConfirm"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="45dp"
             android:lines="1"
             android:layout_centerHorizontal="true"
@@ -63,7 +63,7 @@
 
         <EditText
             android:id="@+id/editEmail"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="45dp"
             android:lines="1"
             android:layout_centerHorizontal="true"
@@ -77,8 +77,8 @@
 
         <Button
             android:id="@+id/btCreate"
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="488dp"
             android:background="@drawable/cc_confrim_pm"

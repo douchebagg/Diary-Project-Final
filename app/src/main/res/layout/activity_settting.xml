@@ -5,23 +5,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Switch
-        android:id="@+id/switchCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Code"
-        android:checked="false" />
-
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="createCode"/>
+        android:layout_height="90dp"
+        android:background="@drawable/st_head">
 
-    <Switch
-        android:id="@+id/switchNotification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="notification"
-        android:checked="false" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/arian"
+            android:textColor="#fff"
+            android:textSize="38sp"
+            android:text="Settting"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/st_list">
+
+                <TextView
+                    android:id="@+id/txtCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/arian"
+                    android:textSize="22sp"/>
+
+                <Switch
+                    android:id="@+id/swtCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginRight="25dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/st_list"
+                android:onClick="createCode">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/arian"
+                    android:textSize="22sp"
+                    android:text="Change Your Code"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@drawable/st_list">
+
+                <TextView
+                    android:id="@+id/txtNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/arian"
+                    android:textSize="22sp"/>
+
+                <Switch
+                    android:id="@+id/swtNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginRight="25dp"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:focusableInTouchMode="true"
+                android:layout_gravity="center_horizontal">
+
+                <EditText
+                    android:id="@+id/editNotification"
+                    android:layout_width="310dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/st_edittext"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:focusable="false"
+                    android:text="00:00"
+                    android:onClick="setTimeNotification"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@drawable/st_clock"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

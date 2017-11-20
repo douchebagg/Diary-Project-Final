@@ -21,7 +21,7 @@ public class SendSuccessActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedIntenceState){
         super.onCreate(savedIntenceState);
-        setContentView(R.layout.activity_send_success_pm);
+        setContentView(R.layout.activity_send_success);
         init();
     }
 
