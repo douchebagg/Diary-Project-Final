@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
 import com.example.douchebag.da_project_android.R;
 import com.example.douchebag.da_project_android.activity.SplashScreenActivity;
@@ -15,7 +14,7 @@ import com.example.douchebag.da_project_android.activity.SplashScreenActivity;
 public class Receiver extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context context, Intent intent) {Log.d("NOTIFICATIONTEST", "2");
+    public void onReceive(Context context, Intent intent) {
         if(intent.getStringExtra("ACTION") != null && intent.getStringExtra("ACTION").equals("NOTIFICATION")){
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -34,7 +33,6 @@ public class Receiver extends BroadcastReceiver {
             builder.setLights(0xFFb71c1c, 1000, 2000);
             builder.setContentIntent(pendingIntent);
             notificationManager.notify(12345, builder.build());
-            Log.d("NOTIFICATIONTEST", "3");
         }
     }
 }

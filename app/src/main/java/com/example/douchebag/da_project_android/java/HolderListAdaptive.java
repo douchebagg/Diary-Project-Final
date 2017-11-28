@@ -2,8 +2,6 @@ package com.example.douchebag.da_project_android.java;
 
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class HolderListAdaptive {

@@ -7,15 +7,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.Html;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -236,7 +233,7 @@ public class MainActivity extends AppCompatActivity{
             holder.menu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    PopupMenu popup = new PopupMenu(getContext(), holder.menu);
+                    PopupMenu popup = new PopupMenu(getContext(), view);
                     popup.inflate(R.menu.popup_menu);
                     popup.show();
 

@@ -58,7 +58,7 @@ public class CreateCodeActivity extends AppCompatActivity {
             if(emailValidFormat(editEmail.getText().toString())) {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString("CODE", editCode.getText().toString());
-                editor.putBoolean("CODE_ENABLE", true);
+                editor.putBoolean("CODE_STATUS", true);
                 editor.putString("EMAIL_FOR_FORGET", editEmail.getText().toString());
                 editor.commit();
 

@@ -1,5 +1,7 @@
 package com.example.douchebag.da_project_android.activity;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,9 +10,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.douchebag.da_project_android.R;
 
@@ -54,8 +56,6 @@ public class ForgetCodeActivity extends AppCompatActivity{
         content = getResources().getString(R.string.mail);
         content = content.replace("THIS", code);
 
-        Log.d("htmltest", content);
-
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -70,9 +70,27 @@ public class ForgetCodeActivity extends AppCompatActivity{
         });
 
         pdialog = ProgressDialog.show(this, "", "Sending Mail...", true);
+        Log.d("connecting", "" + isOnline(this));
+        if(isOnline(this)) {
+            RetreiveFeedTask task = new RetreiveFeedTask();
+            task.execute();
+        }else{
+            Toast.makeText(this, "Sorry, Internet is not connected.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        RetreiveFeedTask task = new RetreiveFeedTask();
-        task.execute();
+    public static boolean isOnline(Context context){
+        if(context == null) {
+            return false;
+        } else {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
+            if(netInfo != null && netInfo.isConnectedOrConnecting()){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     class RetreiveFeedTask extends AsyncTask<String, Void, String> {
